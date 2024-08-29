@@ -8,8 +8,6 @@ class FollowsController < ApplicationController
     #save follow
     #turboframe??
     @follow = Follow.find(params[:id])
-    puts @follow
-    puts "***************"
     @follow.update(approved: true)
     if @follow.save
       redirect_to "/"

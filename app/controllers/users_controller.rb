@@ -18,4 +18,7 @@ class UsersController < ApplicationController
   def declined_follows
     current_user.fan_follows.where(approved: false)
   end
+  def not_follows
+
+  end
 end

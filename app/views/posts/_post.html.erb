@@ -1,5 +1,15 @@
 <div>
-    <strong> <%= post.created_at %> </strong>
+    <%= post.created_at %>
+    <br>
+    <strong><%= post.user.name + " " %></strong> says: 
     <br>
     <%= post.content %>
+    <br>
+    Liked by: 
+    <br>
+    <% post.likes.each do |like| %>
+        <%= like.user.name + " " %>
+    <% end %>
+    <br>
+    <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post }%>
 </div>
