@@ -1,1 +1,19 @@
-Homepage for users
+Homepage for users <br>
+<turbo-frame>
+    <div>
+    <h3> Pending followers </h3>
+    <% @pending_follows.each do |follow| %>
+        <%= render partial: "pending_follow", locals: {follow: follow} %>
+    <% end %>
+
+
+    <h3> Declined followers </h3>
+    <% @declined_follows.each do |follow| %>
+        <%= render partial: "approved_follow", locals: {follow: follow} %>
+    <% end %>
+    <h3> Followers </h3>
+    <% @approved_follows.each do |follow| %>
+        <%= render partial: "approved_follow", locals: {follow: follow} %>
+    <% end %>
+    </div>
+</turbo-frame>
