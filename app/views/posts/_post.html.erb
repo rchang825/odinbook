@@ -12,4 +12,5 @@
     <% end %>
     <br>
     <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post }%>
+    <%= link_to "Comment", new_post_comment_path(post) %>
 </div>
