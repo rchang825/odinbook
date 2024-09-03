@@ -1,8 +1,5 @@
 <%= user.name + "       "%>
-
-
-<% if Follow.find(followee_id: user.id, follower_id: current_user.id) == nil %>
-    <%= "Pending follow" %>
-<% elsif user.approved != true %>
-    <%= link_to "Follow", follow_path(user.id), data: { 'turbo-method' => :post } %>
+<% if Follow.find_by(followee_id: user.id, follower_id: current_user.id).nil? %>
+    <%= link_to "Send Follow Request", follows_path(user_id: user.id), data: { 'turbo-method' => :post } %>
 <% end %>
+<br>
