@@ -20,5 +20,7 @@ Homepage for users <br>
 
 <div>
     <h3> Users </h3>
-    
+    <% @users.each do |user| %>
+        <%= render partial: "user_to_follow", locals: {user: user} %>
+    <% end %>
 </div>

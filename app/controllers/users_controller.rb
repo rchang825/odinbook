@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @declined_follows = declined_follows
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
 
   private
   def pending_follows
@@ -17,8 +20,5 @@ class UsersController < ApplicationController
   end
   def declined_follows
     current_user.fan_follows.where(approved: false)
-  end
-  def not_follows
-
   end
 end
