@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  Rails.application.routes.draw do
+    devise_for :users, controllers: {
+      registrations: 'registrations'
+    }
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :posts do
     resources :likes
