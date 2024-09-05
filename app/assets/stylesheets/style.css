@@ -1,0 +1,10 @@
+.post, .comment{
+    margin: 1em;
+}
+.post {
+    border-style: dashed;
+    padding: 0.5em;
+}
+.interactions {
+    display: flex;
+}

@@ -1,4 +1,4 @@
-<div>
+<div class="post">
     <%= post.created_at %>
     <br>
     <strong><%= post.user.name + " " %></strong> says: 
@@ -6,17 +6,20 @@
     <%= post.content %>
     <br>
     Liked by: 
-    <br>
     <% post.likes.each do |like| %>
         <%= like.user.name + " " %>
     <% end %>
     <br>
     Comments:
     <br>
-    <% post.comments.each do |comment| %>
-        <%= render partial: "comments/comment", locals: { comment: comment } %>
-    <% end %>
-    <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post }%>
-    <%= link_to "Comment", new_post_comment_path(post) %>
+    <div class="comments-container">
+        <% post.comments.each do |comment| %>
+            <%= render partial: "comments/comment", locals: { comment: comment } %>
+        <% end %>
+    </div>
     <br>
+    <div class="interactions">
+        <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post }%>
+        <%= button_to "Comment", new_post_comment_path(post), method: :get %>
+    </div>
 </div>
