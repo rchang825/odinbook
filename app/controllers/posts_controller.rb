@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     user = current_user
     #find idols with follower_id == current_user.id AND approved = true
     feed_users = user.idol_follows.where(approved: true).pluck(:followee_id)
-    feed_users.push(user.id)
+    #feed_users.push(user.id)
     @posts = Post.where(user_id: feed_users)
   end
 
