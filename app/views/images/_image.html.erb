@@ -1,0 +1,27 @@
+<div class="post">
+    <%= image.created_at %>
+    <br>
+    <strong><%= image.user.name + " " %></strong> says: 
+    <br>
+    <%= image.content %>
+    <br>
+    <%= image.caption %>
+    <br>
+    Liked by: 
+    <% image.likes.each do |like| %>
+        <%= like.user.name + " " %>
+    <% end %>
+    <br>
+    Comments:
+    <br>
+    <div class="comments-container">
+        <% image.comments.each do |comment| %>
+            <%= render partial: "comments/comment", locals: { comment: comment } %>
+        <% end %>
+    </div>
+    <br>
+    <div class="interactions">
+        <%= button_to "Like", image_likes_path(image), data: { 'turbo-method' => :post }%>
+        <%= button_to "Comment", new_image_comment_path(image), method: :get %>
+    </div>
+</div>

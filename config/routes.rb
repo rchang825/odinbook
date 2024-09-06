@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users
   resources :posts do
-    resources :likes
-    resources :comments
+    resources :likes, module: :posts
+    resources :comments, module: :posts
+  end
+  resources :images do
+    resources :likes, module: :images
+    resources :comments, module: :images
   end
   resources :follows do
     member do

@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   has_many :posts, dependent: :destroy
+  has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :idol_follows, foreign_key: :follower_id, class_name: 'Follow'
   has_many :idols, through: :idol_follows, class_name: 'User'

@@ -1,0 +1,8 @@
+Upload New Image
+<%= form_with model: @image do |form| %>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+    <%= form.label :caption %>
+    <%= form.text_field :caption%>
+    <%= form.submit "Post" %>
+<% end %>

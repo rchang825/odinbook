@@ -1,0 +1,4 @@
+<h1>Gallery</h1>
+<% @images.each do |image| %>
+    <%= render partial: "image", locals: {image: image} %>
+<% end %>
