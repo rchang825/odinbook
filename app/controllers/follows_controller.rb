@@ -1,8 +1,10 @@
 class FollowsController < ApplicationController
   def create
     @user = current_user
-    @follow = @user.idol_follows.create(follower_id: @user.id, followee_id: params[:user_id])
+    @followee = User.find(params[:user_id])
+    @follow = @user.idol_follows.create(follower_id: @user.id, followee_id: @followee.id)
     @follow.save
+
   end
   def show
     @follow = Follow.find(params[:id])
