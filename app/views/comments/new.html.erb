@@ -1,5 +1,7 @@
+<turbo-frame id=<%="comment_from_#{current_user.id}_on_#{@comment.commentable_type}_#{@commentable.id}"%>>
 Add New Comment
 <%= form_for [@commentable, Comment.new] do |form| %>
     <%= form.text_field :body, placeholder: "Add a Comment" %>
-    <%= form.submit "Post" %>
+    <%= form.submit "Post", data: { turbo_frame: "#{@comment.commentable_type}_#{@commentable.id}"}%>
 <% end %>
+</turbo-frame>

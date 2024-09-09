@@ -6,8 +6,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
+    commentable_type = @comment.commentable_type
     if @comment.save
-      redirect_to "/"
+      if commentable_type == "Image"
+        redirect_to images_path
+      else
+        redirect_to root_path
+      end
     else
       render :new, status: :unprocessable_entity
     end
