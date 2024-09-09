@@ -23,7 +23,7 @@
         <br>
         <div class="interactions">
             <turbo-frame id=<%="like_from_#{current_user.id}_on_Post_#{post.id}"%>>
-                <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post, target: "Post_#{post.id}" }%>
+                <%= button_to "Like", post_likes_path(post), data: { 'turbo-method' => :post, 'turbo-frame': "Post_#{post.id}" }%>
             </turbo-frame>
             <turbo-frame id=<%="comment_from_#{current_user.id}_on_Post_#{post.id}"%>>
                 <%= button_to "Comment", new_post_comment_path(post), method: :get %>

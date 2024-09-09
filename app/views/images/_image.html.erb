@@ -1,4 +1,4 @@
-<turbo-frame id=<%="Image_#{image.id}"%>>
+<turbo-frame id="<%="Image_#{image.id}"%>">
     <div class="post">
         <%= image.created_at %>
         <br>
@@ -25,7 +25,7 @@
         <br>
         <div class="interactions">
             <turbo-frame id=<%="like_from_#{current_user.id}_on_Image_#{image.id}"%>>
-                <%= button_to "Like", image_likes_path(image), data: { 'turbo-method' => :post}%>
+                <%= button_to "Like", image_likes_path(image), data: { 'turbo-method' => :post, 'turbo-frame': "Image_#{image.id}"}%>
             </turbo-frame>
             <turbo-frame id=<%="comment_from_#{current_user.id}_on_Image_#{image.id}"%>>
                 <%= button_to "Comment", new_image_comment_path(image), method: :get %>
